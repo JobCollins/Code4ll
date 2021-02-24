@@ -5,7 +5,13 @@ var cookieParser = require('cookie-parser');
 var expressValidator = require('express-validator');
 var logger = require('morgan');
 
+var mongooose = require('mongoose');
+var config = require('./config');
+
 var indexRouter = require('./routes/index');
+
+mongooose.connect(config.dbConnstring);
+global.User = require('./models/user');
 
 var app = express();
 
