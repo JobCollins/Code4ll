@@ -8,5 +8,6 @@ module.exports = {
             pass: 'password'
         }
     },
-    dbConnstring: 'mongodb://127.0.0.1:27017/code4ll'
+    dbConnstring: 'mongodb://127.0.0.1:27017/code4ll',
+    sessionKey: 'HelloCode4'
 }

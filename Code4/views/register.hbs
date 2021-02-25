@@ -1,4 +1,10 @@
 <form class="form-signin" method="post">
+     {{#each errorMessages}}
+        <div class="alert-danger alert">
+            {{this.msg}}
+        </div>
+    {{/each}}
+    
     <h2 class="form-signin-heading text-center">New Account</h2>
     <input type="text" name="name" class="form-control" placeholder="Name" require="" autofocus="">
     <br>
