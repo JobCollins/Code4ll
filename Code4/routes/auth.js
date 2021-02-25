@@ -2,10 +2,16 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-
-router.get('/login', function (req, res, next) {
+//once you login authrntication is done
+router.route('/login')
+.get(function (req, res, next) {
   res.render('login', {title: 'Login to your Account'})
 })
+.post(passport.authenticate('local', {
+    failureRedirect: '/login'
+}), function (req, res) {
+    res.redirect('/');
+});
 
 router.route('/register')
 .get(function (req, res, next) {

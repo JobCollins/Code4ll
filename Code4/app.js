@@ -33,13 +33,20 @@ app.use(cookieParser());
 app.use(session({
   secret: config.sessionKey,
   resave: false,
-  saveUninitialized: true,
-  cookie: {secure: true}
+  saveUninitialized: true
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//create session variables once user logs in
+app.use(function (req, res) {
+  if (req.isAuthenticated) {
+    res.locals.user = req.user;
+  }
+  next();
+})
 
 app.use('/', indexRouter);
 app.use('/', authRouter)
