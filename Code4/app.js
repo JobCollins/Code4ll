@@ -41,7 +41,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //create session variables once user logs in
-app.use(function (req, res) {
+app.use(function (req, res, next) {
   if (req.isAuthenticated) {
     res.locals.user = req.user;
   }

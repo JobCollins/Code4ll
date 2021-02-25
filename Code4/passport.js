@@ -3,7 +3,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 //initialize sessions
 passport.serializeUser(function(user, done){
-    deleteOne(null, user._id);
+    done(null, user._id);
 });
 
 //accept the session
