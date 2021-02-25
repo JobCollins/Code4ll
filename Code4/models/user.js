@@ -12,7 +12,8 @@ var userSchema = new mongoose.Schema({
         required: true
     },
     hash: String,
-    salt: String
+    salt: String,
+    googleId: String
 });
 
 //create new password once user in db

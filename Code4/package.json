@@ -8,15 +8,18 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "ejs": "^3.1.6",
     "express": "~4.16.1",
     "express-session": "^1.15.1",
     "express-validator": "^3.1.2",
+    "googleapis": "^67.1.0",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "mongoose": "^4.8.6",
     "morgan": "~1.9.1",
     "nodemailer": "^3.1.5",
     "passport": "^0.3.2",
+    "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0"
   }
 }
