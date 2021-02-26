@@ -1,2 +1,2 @@
 # Code4ll
-This is a collaborative code editor for developers built in NodeJS
+This is a collaborative code editor for developers built in NodeJS, Uses Express Server.
