@@ -3,6 +3,7 @@
 var socketIO = require('socket.io')
 
 var ot = require('ot')
+const task = require('./models/task')
 var roomList = {}
 
 module.exports = function (server) {
@@ -12,13 +13,19 @@ module.exports = function (server) {
         socket.on('joinRoom', function (data) {
             if (!roomList[data.room]) {
                 var socketIOServer = new ot.EditorSocketIOServer(str, [], data.room, function (socket, cb) {
-                    cb(true)
+                    var self = this;
+                    task.findByIdAndUpdate(data.room, {content:self.document}, function (err) {
+                        if (err) {
+                            cb(false)
+                        }
+                        cb(true)
+                    })
                 })
                 roomList[data.room] = socketIOServer;
             }
             roomList[data.room].addClient(socket)
             roomList[data.room].setName(socket, data.username)
-            
+
             socket.room = data.room
             socket.join(data.room)
         })
