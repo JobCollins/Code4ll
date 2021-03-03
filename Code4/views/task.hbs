@@ -1,1 +1,23 @@
-<h1>This a new task.</h1>
+<div>
+    <div class="row">
+        <div class="col-md-8">
+            <textarea id="code-screen"></textarea>
+        </div>
+        <div class="col-md-4" id="chatbox">
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.4/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.4/mode/javascript/javascript.min.js"></script>
+
+<script>
+    var editor = CodeMirror.fromTextArea(
+        document.getElementById("code-screen"),
+        {
+            lineNumbers:true,
+            theme: "monokai"
+        }
+    );
+</script>
